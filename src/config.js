@@ -136,5 +136,4 @@ module.exports = {
   getServerUrl,
   initConfig,
   shouldNormalize,
-  isFailIgnore,
 };
