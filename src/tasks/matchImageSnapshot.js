@@ -1,3 +1,4 @@
+/* globals cy */
 const { merge, cloneDeep } = require('lodash');
 const rimraf = require('rimraf').sync;
 const path = require('path');
