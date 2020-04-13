@@ -1,7 +1,7 @@
 const { merge, cloneDeep } = require('lodash');
 const rimraf = require('rimraf').sync;
 const path = require('path');
-const { getConfig, isFailIgnore } = require('../config');
+const { getConfig } = require('../config');
 const getSnapshotFilename = require('../utils/image/getSnapshotFilename');
 const getImageData = require('../utils/image/getImageData');
 const saveImageSnapshot = require('../save/saveImageSnapshot');
@@ -44,7 +44,7 @@ async function matchImageSnapshot(data = {}) {
   const autoPassed = (config.autopassNewSnapshots && expected === false);
   const actual = exists || resized ? getImageObject(image.path, true) : image;
   const passed = expected && compareImages(expected, actual, diffFilename, options);
-  const QuickMode = isFailIgnore(options.failIgnore);
+  const QuickMode = options.failIgnore;
 
   actual.resized = resized !== false;
 
