@@ -67,10 +67,6 @@ function getConfig() {
   return config;
 }
 
-function isFailIgnore(suppliedConfig) {
-  return DEFAULT_CONFIG.failIgnore || suppliedConfig;
-}
-
 function getImageConfig(options = {}) {
   return Object.keys(DEFAULT_IMAGE_CONFIG)
     .filter((key) => options.imageConfig && options.imageConfig[key] !== undefined)
