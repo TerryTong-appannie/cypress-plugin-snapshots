@@ -44,7 +44,7 @@ async function matchImageSnapshot(data = {}) {
   const autoPassed = (config.autopassNewSnapshots && expected === false);
   const actual = exists || resized ? getImageObject(image.path, true) : image;
   const passed = expected && compareImages(expected, actual, diffFilename, options);
-  const QuickMode = options.imageConfig[failIgnore];
+  const QuickMode = options.imageConfig[5];
 
   actual.resized = resized !== false;
 
