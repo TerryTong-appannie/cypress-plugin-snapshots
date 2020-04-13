@@ -46,6 +46,7 @@ async function matchImageSnapshot(data = {}) {
   const passed = expected && compareImages(expected, actual, diffFilename, options);
   const QuickMode = options.failIgnore;
 
+  cy.log(QuickMode);
   actual.resized = resized !== false;
 
   let updated = false;
