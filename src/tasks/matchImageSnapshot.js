@@ -47,7 +47,6 @@ async function matchImageSnapshot(data = {}) {
   const passed = expected && compareImages(expected, actual, diffFilename, options);
   const QuickMode = options.failIgnore;
 
-  cy.log(QuickMode);
   actual.resized = resized !== false;
 
   let updated = false;
@@ -64,6 +63,8 @@ async function matchImageSnapshot(data = {}) {
   const diff = passed || autoPassed || !options.createDiffImage ?
     undefined : createDiffObject(diffFilename);
 
+  const testResult = passed || autoPassed || QuickMode;
+
   const result = {
     actual: getImageData(actual),
     commandName,
@@ -71,7 +72,7 @@ async function matchImageSnapshot(data = {}) {
     diff,
     exists,
     expected: getImageData(expected),
-    passed: (passed || autoPassed) || QuickMode,
+    passed: testResult,
     snapshotFile: path.relative(process.cwd(), snapshotFile),
     snapshotTitle,
     subject,
